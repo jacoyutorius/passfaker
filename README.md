@@ -1,3 +1,5 @@
+[![Ruby](https://github.com/jacoyutorius/passfaker/actions/workflows/main.yml/badge.svg)](https://github.com/jacoyutorius/passfaker/actions/workflows/main.yml)
+
 # Passfaker
 
 ## 使い方
