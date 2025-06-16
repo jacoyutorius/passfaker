@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["jacoyutorius@gmail.com"]
 
   spec.summary = "複数の単語を組み合わせたパスフレーズを生成するRubyGem。"
-  spec.description = "Passfakerは、Fakerを使用して複数の単語を組み合わせたパスフレーズを生成するRubyGemです。パスワードの強度を向上させるために、ランダムな単語とオプションで数字を含めることができます。"
+  spec.description = "Passfakerは、Fakerを使用して複数の単語を組み合わせたパスフレーズを生成するRubyGemです。パスワードの強度を向上させるために、ランダムな単語とオプションで数字を含めることができます。" # rubocop:disable Layout/LineLength
   spec.homepage = "https://github.com/jacoyutorius/passfaker"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  gemspec = File.basename(__FILE__)
+  File.basename(__FILE__)
   spec.files = IO.popen(%w[git ls-files -z], chdir: __dir__, err: IO::NULL) do |ls|
     ls.readlines("\x0", chomp: true).reject do |f|
       # (f == gemspec) ||
