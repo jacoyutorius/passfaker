@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
+# Passfakerモジュール
 module Passfaker
   require "securerandom"
   require "faker"
 
+  # パスワード生成のためのモジュール
   module Generator
     CATEGORIES = [
       -> { Faker::Color.color_name },
