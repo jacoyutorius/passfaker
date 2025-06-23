@@ -12,17 +12,30 @@ module Passfaker
       -> { Faker::Creature::Animal.name },
       -> { Faker::Food.ingredient },
       -> { Faker::Games::Pokemon.name },
-      -> { Faker::Music.instrument }
+      -> { Faker::Music.instrument },
+      -> { Faker::Superhero.name },
+      -> { Faker::Music.genre }
     ].freeze
 
     def self.generate(word_count:, separator:, include_number:)
       words = word_count.times.map do
         generator = CATEGORIES[SecureRandom.random_number(CATEGORIES.size)]
-        generator.call.downcase.gsub(/\s+/, "-")
+        word = generator.call.downcase.gsub(/\s+/, "")
+        random_char_upcase(word)
       end
 
       words << ::SecureRandom.random_number(100).to_s if include_number
-      words.join(separator)
+      words.shuffle.join(separator)
+    end
+
+    # ランダムな文字を大文字に変換する
+    def self.random_char_upcase(word)
+      return word if word.empty?
+
+      chars = word.chars
+      index = SecureRandom.random_number(chars.size)
+      chars[index] = chars[index].upcase
+      chars.join
     end
   end
 end
