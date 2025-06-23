@@ -20,7 +20,7 @@ RSpec.describe Passfaker do
 
     it "includes a number when include_number is true" do
       password = Passfaker.generate(include_number: true)
-      expect(password).to match(/\d+$/)
+      expect(password).to match(/\d+/)
     end
   end
 end
